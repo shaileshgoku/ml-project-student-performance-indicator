@@ -5,16 +5,11 @@ description = "Student performance prediction app for Streamlit Cloud deployment
 readme = "README.md"
 requires-python = ">=3.10,<3.13"
 dependencies = [
-    "catboost",
     "dill",
-    "flask",
-    "matplotlib",
     "numpy",
     "pandas",
     "scikit-learn",
-    "seaborn",
     "streamlit",
-    "xgboost",
 ]
 
 [tool.uv]
