@@ -5,18 +5,20 @@ from src.exception import CustomException
 from src.logger import logging
 from src.utils import load_object
 
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+ARTIFACTS_DIR = os.path.join(PROJECT_ROOT, "artifacts")
+
 class PredictPipeline:
     def __init__(self):
         pass
 
     def predict(self,features):
         try:
-            model_path=os.path.join("artifacts","model.pkl")
-            preprocessor_path=os.path.join('artifacts','preprocessor.pkl')
-            print("Before Loading")
+            model_path=os.path.join(ARTIFACTS_DIR,"model.pkl")
+            preprocessor_path=os.path.join(ARTIFACTS_DIR,'preprocessor.pkl')
             model=load_object(file_path=model_path)
             preprocessor=load_object(file_path=preprocessor_path)
-            print("After Loading")
             data_scaled=preprocessor.transform(features)
             preds=model.predict(data_scaled)
             return preds
